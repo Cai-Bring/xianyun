@@ -1,6 +1,7 @@
 <template>
   <div class="index">
     <div class="container">
+      <!-- 轮播图部分 -->
       <el-carousel indicator-position="outside">
         <el-carousel-item v-for="(item,index) in banner" :key="index">
           <div
@@ -9,18 +10,24 @@
           ></div>
         </el-carousel-item>
       </el-carousel>
+      <!-- 中间输入框部分 -->
       <div class="banner-content">
         <div class="search-bar">
           <!-- tab栏 -->
           <el-row type="flex" class="search-tab">
-            <span>
-              <i>攻略</i>
+            <span
+              v-for="(item,index) in option"
+              :key="index"
+              @click="handeroption(index)"
+              :class="{active:index===currentOption}"
+            >
+              <i>{{item.name}}</i>
             </span>
           </el-row>
 
           <!-- 输入框 -->
           <el-row type="flex" align="middle" class="search-input">
-            <input />
+            <input :placeholder="option[currentOption].placeholder" />
             <i class="el-icon-search"></i>
           </el-row>
         </div>
@@ -36,7 +43,23 @@ export default {
       banner: [
         // { url: "http://157.122.54.189:9095/assets/images/th01.jfif" },
         // { url: "http://157.122.54.189:9095/assets/images/th01.jfif" }
-      ]
+      ],
+      option: [
+        {
+          name: "攻略",
+          placeholder: "搜索城市"
+        },
+        {
+          name: "酒店",
+          placeholder: "请输入城市搜索酒店"
+        },
+        {
+          name: "机票",
+          placeholder: ""
+        }
+      ], // 文本框数据
+      searchValue: "", // 输入框的值
+      currentOption: 0 // 当前选中的选项
     };
   },
   mounted() {
@@ -48,6 +71,11 @@ export default {
       const { data } = res.data;
       this.banner = data;
     });
+  },
+  methods: {
+    handeroption(index) {
+      this.currentOption = index;
+    }
   }
 };
 </script>

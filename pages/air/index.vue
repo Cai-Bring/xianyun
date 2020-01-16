@@ -1,5 +1,5 @@
 <template>
-  <div>shou</div>
+  <div class="air">air</div>
 </template>
 
 <script>

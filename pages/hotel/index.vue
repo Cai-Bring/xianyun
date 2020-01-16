@@ -1,10 +1,13 @@
 <template>
-  <div>shou</div>
+   <div class="hotel">hotel</div>
 </template>
 
 <script>
-export default {};
+export default {
+
+}
 </script>
 
 <style>
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>shou</div>
+  <div class="login">login</div>
 </template>
 
 <script>

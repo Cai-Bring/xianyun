@@ -1,12 +1,18 @@
 <template>
   <div>
+    <Header />
     <!-- 内容占位组件 -->
     <nuxt />
   </div>
 </template>
 
 <script>
-export default {};
+import Header from "@/components/header";
+export default {
+  components: {
+    Header
+  }
+};
 </script>
 
 <style lang="less">

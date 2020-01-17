@@ -67,6 +67,8 @@ export default {
           }).then(res => {
             const { data } = res;
             console.log(res);
+            // 传到仓库store中的user里面的setUserInfo去
+            this.$store.commit("user/setUserInfo", data);
           });
         }
       });
